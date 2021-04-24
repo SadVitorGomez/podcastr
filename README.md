@@ -12,8 +12,8 @@
 # 💻 Sobre o Projeto
 
 <p align="center">
-  <!-- <img alt="banner" title="Banner" src=".github/banner.png" />
-  O move.it é um app que une a técnica de Pomodoro com a realização de exercícios físicos para quem passa muito tempo na frente do computador. -->
+  <img alt="banner" title="Banner" src=".github/banner.png" />
+  O podcastr é uma aplicação front-end que disponibiliza podcasts/músicas para serem tocadas no browser. Desenvolvida na semana NLW#05 utilizando React x Next.
 </p>
 
 ## 🚀 Como executar
