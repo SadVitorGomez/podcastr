@@ -3,13 +3,13 @@
   height: 100vh;
   padding: 3rem 4rem;
 
-  background: var(--purple-500);
-  color: var(--white);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  background: var(--purple-500);
+  color: var(--white);
 
   header {
     display: flex;
@@ -137,5 +137,91 @@
         filter: brightness(0.95);
       }
     }
+  }
+}
+
+@media (max-width: 1442px) {
+  .playerContainer {
+    width: 100%;
+    height: auto;
+    padding: 1rem 2rem;
+    justify-content: center;
+    flex-direction: row;
+    position: sticky;
+    bottom: 0;
+    border-top: 2px solid var(--purple-800);
+
+    header {
+      display: none;
+    }
+
+    footer {
+      width: 50%;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .currentEpisode {
+    padding: 0 1rem;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+    img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 0;
+    }
+
+    .contentWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-left: 1rem;
+    }
+
+    strong {
+      max-width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 0;
+      font-size: 0.75rem;
+      line-height: normal;
+    }
+
+    span {
+      max-width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: normal;
+      font-size: 0.7rem;
+      margin-top: 0;
+    }
+  }
+
+  .emptyPlayer {
+    width: 127px;
+    height: 100%;
+    padding: 0 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    border-radius: 0;
+    border: none;
+    border-right: 1.5px dashed var(--purple-300);
+    background: var(--purple-500);
+  }
+
+  .buttons {
+    margin-top: 0;
+    margin-bottom: 0.875rem;
   }
 }
