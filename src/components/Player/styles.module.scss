@@ -225,3 +225,44 @@
     margin-bottom: 0.875rem;
   }
 }
+
+@media (max-width: 1224px) {
+  .playerContainer {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+
+    footer {
+      display: none;
+    }
+  }
+
+  .currentEpisode {
+    padding: 0;
+    position: static;
+
+    img {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    strong {
+      max-width: 100%;
+      white-space: normal;
+      text-overflow: unset;
+    }
+
+    span {
+      max-width: 100%;
+      white-space: normal;
+      text-overflow: unset;
+    }
+  }
+
+  .buttons {
+    padding-right: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
