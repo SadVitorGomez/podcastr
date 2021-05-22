@@ -9,7 +9,12 @@ import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString'
 import { usePlayer } from '../contexts/PlayerContext'
 
-import styles from './styles/home.module.scss'
+import {
+  Homepage,
+  LatestEpisodes,
+  EpisodeDetails,
+  AllEpisodes,
+} from './styles/home'
 
 type Episode = {
   id: string
@@ -33,11 +38,11 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   const episodeList = [...latestEpisodes, ...allEpisodes]
 
   return (
-    <div className={styles.homepage}>
+    <Homepage>
       <Head>
         <title>Podcastr | Home</title>
       </Head>
-      <section className={styles.latestEpisodes}>
+      <LatestEpisodes>
         <h2>Últimos lançamentos</h2>
 
         <ul>
@@ -52,14 +57,14 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   alt={episode.title}
                 />
 
-                <div className={styles.episodeDetails}>
+                <EpisodeDetails>
                   <Link href={`/episodes/${episode.id}`}>
                     <a>{episode.title}</a>
                   </Link>
                   <p>{episode.members}</p>
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationAsString}</span>
-                </div>
+                </EpisodeDetails>
 
                 <button
                   type="button"
@@ -73,9 +78,9 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
             )
           })}
         </ul>
-      </section>
+      </LatestEpisodes>
 
-      <section className={styles.allEpisodes}>
+      <AllEpisodes>
         <h2>Todos episódios</h2>
 
         <table cellSpacing={0}>
@@ -125,8 +130,8 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
             })}
           </tbody>
         </table>
-      </section>
-    </div>
+      </AllEpisodes>
+    </Homepage>
   )
 }
 
