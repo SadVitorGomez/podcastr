@@ -1,24 +1,31 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
-  background-color: var(--white);
+  background-color: ${(props) => props.theme.colors.default};
   height: 6.5rem;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 2rem 4rem;
 
-  border-bottom: 1px solid var(--gray-100);
+  transition: all 0.5s linear;
+  border-bottom: 1px solid ${(props) => props.theme.colors.secondary100};
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 
   p {
     margin-left: 2rem;
     padding: 0.25rem 0 0.25rem 2rem;
-    border-left: 1px solid var(--gray-100);
+    border-left: 1px solid ${(props) => props.theme.colors.secondary100};
   }
 
   span {
-    margin-left: auto;
+    margin-left: 2rem;
     text-transform: capitalize;
   }
 `

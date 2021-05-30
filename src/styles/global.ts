@@ -2,26 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
-
-  :root {
-    --white: #fff;
-
-    --gray-50: #f7f8fa;
-    --gray-100: #e6e8eb;
-    --gray-200: #afb2b1;
-    --gray-500: #808080;
-    --gray-800: #494d4b;
-
-    --green-500: #04d361;
-
-    --purple-300: #9f75ff;
-    --purple-400: #9164fa;
-    --purple-500: #8257e5;
-    --purple-800: #6f48c9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   @media (max-width: 1080px) {
@@ -37,7 +20,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: var(--gray-50);
+    transition: all .5s linear;
+    background-color: ${(props) => props.theme.colors.secondary50};
   }
 
   body,
@@ -45,7 +29,7 @@ export default createGlobalStyle`
   button,
   textarea {
     font: 500 1rem Inter, sans-serif;
-    color: var(--gray-500);
+    color: ${(props) => props.theme.colors.secondary500};
   }
 
   h1,
@@ -56,7 +40,7 @@ export default createGlobalStyle`
   h6 {
     font-weight: 600;
     font-family: Lexend, sans-serif;
-    color: var(--gray-800);
+    color: ${(props) => props.theme.colors.secondary800};
   }
 
   h1 {

@@ -10,8 +10,9 @@ export const PlayerContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background: var(--purple-500);
-  color: var(--white);
+  transition: all 0.5s linear;
+  background: ${(props) => props.theme.colors.primary500};
+  color: ${(props) => props.theme.colors.text};
 
   header {
     display: flex;
@@ -32,7 +33,7 @@ export const PlayerContainer = styled.div`
     flex-direction: row;
     position: sticky;
     bottom: 0;
-    border-top: 2px solid var(--purple-800);
+    border-top: 2px solid ${(props) => props.theme.colors.primary800};
 
     header {
       display: none;
@@ -73,7 +74,7 @@ export const EmptyPlayer = styled.div`
   align-items: center;
   justify-content: center;
 
-  border: 1.5px dashed var(--purple-300);
+  border: 1.5px dashed ${(props) => props.theme.colors.primary300};
   border-radius: 1.5rem;
   background: linear-gradient(
     143.8deg,
@@ -91,8 +92,8 @@ export const EmptyPlayer = styled.div`
 
     border-radius: 0;
     border: none;
-    border-right: 1.5px dashed var(--purple-300);
-    background: var(--purple-500);
+    border-right: 1.5px dashed ${(props) => props.theme.colors.primary300};
+    background: ${(props) => props.theme.colors.primary500};
   }
 
   @media (max-width: 1224px) {
@@ -212,7 +213,7 @@ export const SliderWrapper = styled.div`
 export const EmptySlider = styled(SliderWrapper)`
   width: 100%;
   height: 4px;
-  background: var(--purple-300);
+  background: ${(props) => props.theme.colors.primary300};
   border-radius: 2px;
 `
 
@@ -267,7 +268,7 @@ export const PlayButton = styled.button`
   border: 0;
   font-size: 0;
   transition: filter 0.2s;
-  background-color: var(--purple-400) !important;
+  background-color: ${(props) => props.theme.colors.primary400} !important;
 
   &:hover:not(:disabled) {
     filter: brightness(0.95);
