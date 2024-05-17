@@ -107,6 +107,7 @@ export const CurrentEpisode = styled.div`
   text-align: center;
 
   img {
+    object-fit: cover;
     border-radius: 1.5rem;
   }
 

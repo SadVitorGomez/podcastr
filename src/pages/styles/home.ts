@@ -36,6 +36,7 @@ export const LatestEpisodes = styled.section`
     img {
       width: 6rem;
       height: 6rem;
+      object-fit: cover;
       border-radius: 1rem;
     }
 
@@ -149,6 +150,7 @@ export const AllEpisodes = styled.div`
       img {
         width: 2.5rem;
         height: 2.5rem;
+        object-fit: cover;
         border-radius: 0.5rem;
       }
 

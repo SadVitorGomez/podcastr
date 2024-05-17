@@ -137,8 +137,8 @@ export function Player() {
           {episode ? (
             <CurrentEpisode>
               <Image
-                width={592}
-                height={592}
+                width={300}
+                height={300}
                 src={episode.thumbnail}
                 alt={episode.title}
               />
