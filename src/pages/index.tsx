@@ -52,14 +52,13 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                 <Image
                   width={192}
                   height={192}
-                  objectFit="cover"
                   src={episode.thumbnail}
                   alt={episode.title}
                 />
 
                 <EpisodeDetails>
                   <Link href={`/episodes/${episode.id}`}>
-                    <a>{episode.title}</a>
+                    {episode.title}
                   </Link>
                   <p>{episode.members}</p>
                   <span>{episode.publishedAt}</span>
@@ -102,14 +101,13 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                     <Image
                       width={120}
                       height={120}
-                      objectFit="cover"
                       src={episode.thumbnail}
                       alt={episode.title}
                     />
                   </td>
                   <td>
                     <Link href={`/episodes/${episode.id}`}>
-                      <a>{episode.title}</a>
+                      {episode.title}
                     </Link>
                   </td>
                   <td>{episode.members}</td>
@@ -136,7 +134,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('episodes', {
+  const { data } = await api.get('/', {
     params: {
       _limit: 12,
       _sort: 'published_at',
@@ -144,7 +142,7 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   })
 
-  const episodes = data.map((episode) => {
+  const episodes = data['episodes'].map((episode) => {
     return {
       id: episode.id,
       title: episode.title,

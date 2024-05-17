@@ -49,7 +49,6 @@ export default function Episode({ episode }: EpisodeProps) {
           <Image
             width={700}
             height={160}
-            objectFit="cover"
             src={episode.thumbnail}
           />
           <button

@@ -90,8 +90,8 @@ export function Player() {
               <Image
                 width={592}
                 height={592}
-                objectFit={'cover'}
                 src={episode.thumbnail}
+                alt={episode.title}
               />
               <ContentWrapper>
                 <strong>{episode.title}</strong>
@@ -139,8 +139,8 @@ export function Player() {
               <Image
                 width={592}
                 height={592}
-                objectFit={'cover'}
                 src={episode.thumbnail}
+                alt={episode.title}
               />
               <ContentWrapper>
                 <strong>{episode.title}</strong>
