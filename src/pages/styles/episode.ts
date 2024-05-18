@@ -51,6 +51,7 @@ export const ThumbnailContainer = styled.div`
   position: relative;
 
   img {
+    object-fit: cover;
     border-radius: 1rem;
   }
 

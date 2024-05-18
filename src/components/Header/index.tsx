@@ -1,9 +1,8 @@
-import format from 'date-fns/format'
-import ptBR from 'date-fns/locale/pt-BR'
+import { format } from 'date-fns/format'
+import { ptBR } from 'date-fns/locale'
 import { useContext } from 'react'
 import Switch from 'react-switch'
 import { ThemeContext } from 'styled-components'
-import { Player } from '../Player'
 
 import { HeaderContainer } from './styles'
 
@@ -13,7 +12,7 @@ type ThemeProps = {
 
 export function Header({ toggleTheme }: ThemeProps) {
   const { colors, title } = useContext(ThemeContext)
-  const currentDate = format(new Date(), 'EEEEEE, d MMM', { locale: ptBR })
+  const currentDate = format(new Date(), 'EEEEEE, d MMM', {locale: ptBR})
 
   return (
     <HeaderContainer>

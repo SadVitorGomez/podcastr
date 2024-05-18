@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
-import { api } from '../../services/api'
+import db from '../../services/api'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString'
 import { usePlayer } from '../../contexts/PlayerContext'
 
@@ -78,13 +78,14 @@ export default function Episode({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await api.get('episodes', {
-    params: {
-      _limit: 2,
-      _sort: 'published_at',
-      _order: 'desc',
-    },
-  })
+  const data = []
+  const collection = db.collection('episodes')
+
+  const querySnapshot = await collection.limit(2).orderBy('published_at', 'desc').get();
+
+  querySnapshot.forEach((doc) => {
+    data.push(doc.data());
+  });
 
   const paths = data.map((episode: Episode) => {
     return {
@@ -102,7 +103,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params
-  const { data } = await api.get(`/episodes/${slug}`)
+  const collection = db.collection('episodes').where('id', '==', slug)
+
+  const querySnapshot = await collection.get()
+
+  const data = querySnapshot.docs[0].data()
+
   const episode = {
     id: data.id,
     title: data.title,

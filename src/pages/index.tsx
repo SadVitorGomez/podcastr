@@ -3,9 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
 import { format, parseISO } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+import { ptBR } from 'date-fns/locale'
 
-import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString'
 import { usePlayer } from '../contexts/PlayerContext'
 
@@ -15,6 +14,7 @@ import {
   EpisodeDetails,
   AllEpisodes,
 } from './styles/home'
+import db from '../services/api'
 
 type Episode = {
   id: string
@@ -134,15 +134,16 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('/', {
-    params: {
-      _limit: 12,
-      _sort: 'published_at',
-      _order: 'desc',
-    },
-  })
+  const collection = db.collection('episodes')
 
-  const episodes = data['episodes'].map((episode) => {
+  const data = [];
+  const querySnapshot = await collection.orderBy('published_at', 'desc').get();
+
+  querySnapshot.forEach((doc) => {
+    data.push(doc.data());
+  });
+
+  const episodes = data.map((episode) => {
     return {
       id: episode.id,
       title: episode.title,
